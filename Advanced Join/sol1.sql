@@ -1,0 +1,1 @@
+SELECT o.start_date, (SELECT MIN(p.end_date) FROM projects p WHERE p.end_date NOT IN (SELECT start_date FROM projects) AND p.end_date > o.start_date) AS qqq FROM projects o WHERE o.start_date NOT IN (SELECT end_date FROM projects) ORDER BY qqq-o.start_date ASC, o.start_date ASC;

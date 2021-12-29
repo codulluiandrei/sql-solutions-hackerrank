@@ -1,0 +1,1 @@
+SELECT x, y FROM (SELECT x, y FROM functions WHERE x = y GROUP BY x, y HAVING COUNT(*) > 1 UNION ALL SELECT DISTINCT f1.x, f1.y FROM functions f1 JOIN functions f2 ON f1.x = f2.y AND f1.y = f2.x AND f1.x != f2.x) a WHERE a.x <= a.y ORDER BY a.x;
